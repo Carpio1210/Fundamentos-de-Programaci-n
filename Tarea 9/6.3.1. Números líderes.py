@@ -5,10 +5,9 @@ Ejercicio:    Eliminando valores inmutables
 Descripción:  Ejercicio de clase numeros lideres.
 
 Autor:        Diego Roberto Carpio Flamenco
-Fecha:        2025-05-31
+Fecha:        2025-06-02
 Estado:       [ En progreso | Terminado ]
 '''
-
 
 import os
 
@@ -16,24 +15,10 @@ os.system('cls')
 
 entrada = (input('Ingresa una lista de numeros: '))
 
-lista = entrada.split(' ')
+numeros = [int(n) for n in entrada.split()]
+lideres = []
 
-no_repetido = []
-
-for n in lista:
-    if n not in no_repetido:
-        no_repetido.append(n)
-
-no_repetido = [int(n) for n in no_repetido]
-
-def ordenar(no_repetido):
-    if len(no_repetido) == 0:
-        return []
-    else:
-        mayor = max(no_repetido)
-        no_repetido.remove(mayor)
-        return [mayor] + ordenar(no_repetido)
-
-ordenar = ordenar(no_repetido)
-
-print(" ".join(str(n) for n in ordenar))
+for i in range(len(numeros) - 1):
+        if not any(n > numeros[i] for n in numeros[i + 1:]):
+            lideres.append(numeros[i])
+print(" ".join(str(n) for n in lideres))
