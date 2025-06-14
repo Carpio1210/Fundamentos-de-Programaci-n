@@ -67,5 +67,4 @@ for generation in range(25):
                     env[i][j] = 1
             else: 
                 if count == 3:
-                    env[i][j] = 1
-                    
+                    env[i][j] = 1                   
